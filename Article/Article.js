@@ -112,3 +112,48 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+const articleOutput = document.querySelector(".articles");
+
+data.forEach((e) => {
+  articleOutput.appendChild(createArticle(e.title, e.date, e.firstParagraph, e.secondParagraph, e.thirdParagraph))
+});
+
+const articleMain = document.querySelector(".articles");
+console.log(articleMain);
+
+function createArticle(title, date, firstParagraph, secondParagraph, thirdParagraph){
+
+  const article = document.createElement("div");
+  const articleTitle = document.createElement("h2");
+  const articleDate = document.createElement("p");
+  const firstArticlePara = document.createElement("p");
+  const secondArticlePara = document.createElement("p");
+  const thirdArticlePara = document.createElement("p");
+  const buttonExpand = document.createElement("span");
+
+  article.appendChild(articleTitle);
+  article.appendChild(articleDate);
+  article.appendChild(firstArticlePara);
+  article.appendChild(secondArticlePara);
+  article.appendChild(thirdArticlePara);
+  article.appendChild(buttonExpand);
+
+  article.classList.add("article");
+  articleDate.classList.add("date");
+  buttonExpand.classList.add("expandButton");
+
+  buttonExpand.textContent = "A Button";
+
+  buttonExpand.addEventListener("click", () => {
+    article.classList.toggle("article-open")
+  });
+
+  articleTitle.textContent = title;
+  articleDate.textContent = date;
+  firstArticlePara.textContent = firstParagraph;
+  secondArticlePara.textContent = secondParagraph;
+  thirdArticlePara.textContent = thirdParagraph;
+
+  return article;
+}
+
