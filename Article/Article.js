@@ -126,7 +126,7 @@ data.forEach((e) => {
 });
 
 const articleMain = document.querySelector(".articles");
-console.log(articleMain);
+// console.log(articleMain);
 
 function createArticle(title, date, firstParagraph, secondParagraph, thirdParagraph){
 
